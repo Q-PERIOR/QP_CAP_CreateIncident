@@ -1,9 +1,4 @@
-topicArea;issue
-Computer;Request help for computer setup
-Computer;Request new computer
-Computer;Request remote control
-Computer;Request computer repair
-Software;Install new software
-Software;Request remote software tutorial
-User;Request local administrator rights
-User;Create new user
+ID;topicName;responsible_ID
+100;Computer;1
+200;Software;2;
+300;User;3

@@ -1,2 +1,4 @@
-name
-Max Mustermann
+ID;name;topic_ID
+1;Max Mustermann;100
+2;Erika Mustermann;200
+3;John Smith;300
