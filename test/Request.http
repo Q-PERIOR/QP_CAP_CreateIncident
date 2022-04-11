@@ -1,0 +1,63 @@
+
+### Get all Topics
+http://localhost:4004/create-incident/Topic
+
+### Get all Responsibles
+http://localhost:4004/create-incident/Responsible
+
+### Get all Incidents
+http://localhost:4004/create-incident/Incident
+
+
+### Get topic of ID 100
+http://localhost:4004/create-incident/Topic/100
+
+### Get responisble of ID 1
+http://localhost:4004/create-incident/Responsible/1
+
+
+### Get topics of responsibles
+http://localhost:4004/create-incident/Responsible?$expand=topic
+
+### Get topics of responsible with ID 2
+http://localhost:4004/create-incident/Responsible/2?$expand=topic
+
+### Get responsibles of topic
+http://localhost:4004/create-incident/Topic?$expand=responsible
+
+### Get responsibles of topic with ID 300
+http://localhost:4004/create-incident/Topic/300?$expand=responsible
+
+
+###### User Requests
+
+### Get open Incident of user
+http://localhost:4004/request-user/getOpenIncidents(creator='Jimmy')
+
+### Get status of Incident
+http://localhost:4004/request-user/getStatusOfIncidentByID(ID=ad5df199-1cd1-4469-b9f8-f79125d01fd9)
+
+### Post Incident
+POST http://localhost:4004/create-incident/Incident
+Content-Type: application/json
+
+{
+    "creator":"Jimmy",
+    "topic_ID":200,
+    "priority":2,
+    "title":"TitleTest2",
+    "message":"MessageContentTest2"
+}
+
+
+
+####### Admin Requests
+
+### Get open Incident of everyone
+http://localhost:4004/request-admin/getOpenIncidents()
+
+### Get Incidents of a specific topic
+http://localhost:4004/request-admin/getIncidentsFromTopic(topic_ID=200)
+
+### Set status of a Incident
+http://localhost:4004/request-admin/setIncidentStatus(ID=ad5df199-1cd1-4469-b9f8-f79125d01fd9,status=9)
