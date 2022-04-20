@@ -37,7 +37,7 @@ http://localhost:4004/request-user/getOpenIncidents(creator='Jimmy')
 ### Get status of Incident
 http://localhost:4004/request-user/getStatusOfIncidentByID(incident_ID=8afef418-a1da-4f0f-acd2-fe4a1eb788da)
 
-### Post Incident via name
+### Post Incident via name instead of ID
 http://localhost:4004/request-user/createIncident(creator='Jimmy',topicName='Computer',priority=2,title='TitleTest',message='MessageContent')
 
 ### Post Incident
