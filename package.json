@@ -2,7 +2,10 @@
   "name": "incident",
   "version": "1.0.0",
   "description": "A simple CAP project.",
-  "repository": "<Add your repository here>",
+  "repository": {
+    "type": "git",
+    "url": "<Add your repository here>"
+  },
   "license": "UNLICENSED",
   "private": true,
   "dependencies": {
@@ -10,7 +13,6 @@
     "@sap/cds-odata-v2-adapter-proxy": "^1.8.9",
     "express": "^4.17.2",
     "hdb": "^0.18.3",
-    "passport": "^0.5.2",
     "supertest": "^6.2.2"
   },
   "devDependencies": {
@@ -21,7 +23,8 @@
     "npm": "7.13.0"
   },
   "scripts": {
-    "start": "cds run"
+    "start": "cds run",
+    "build": "cds build/all --clean;cp gen/srv/srv/csn.json srv/gen/;cp -r gen/db/src/gen db/src"
   },
   "eslintConfig": {
     "extends": "eslint:recommended",
