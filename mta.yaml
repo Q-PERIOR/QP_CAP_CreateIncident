@@ -9,7 +9,7 @@ build-parameters:
   before-all:
     - builder: custom
       commands:
-        - npm ci
+        - npm install --production
         - npx -p @sap/cds-dk cds build --production
 
 modules:
@@ -18,8 +18,6 @@ modules:
     path: gen/srv
     parameters:
       buildpack: nodejs_buildpack
-    build-parameters:
-      builder: npm-ci
     provides:
       - name: srv-api # required by consumers of CAP services (e.g. approuter)
         properties:
