@@ -1,7 +1,5 @@
 const cds = require('@sap/cds')
 
-const User = new class extends cds.User {}
-
 module.exports = cds.service.impl(srv => {
     const { Incident, Responsible } = srv.entities ('qpe.cloud')
 

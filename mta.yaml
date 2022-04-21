@@ -1,10 +1,14 @@
----
-_schema-version: '3.1'
-ID: 2607-incident
+## Generated mta.yaml based on template version 0.4.0
+## appName = 2607-inc
+## language=nodejs; multitenant=false
+## approuter=
+_schema-version: "3.1"
+ID: 2607-inc
 version: 1.0.0
 description: "A simple CAP project."
 parameters:
   enable-parallel-deployments: true
+
 build-parameters:
   before-all:
     - builder: custom
@@ -13,28 +17,38 @@ build-parameters:
         - npx -p @sap/cds-dk cds build --production
 
 modules:
-  - name: 2607-incident-srv
+  # --------------------- SERVER MODULE ------------------------
+  - name: 2607-inc-srv
+    # ------------------------------------------------------------
     type: nodejs
     path: gen/srv
     parameters:
       buildpack: nodejs_buildpack
+    requires:
+      # Resources extracted from CAP configuration
+      - name: 2607-inc-db
     provides:
       - name: srv-api # required by consumers of CAP services (e.g. approuter)
         properties:
           srv-url: ${default-url}
-    requires:
-      - name: 2607-incident-db
 
-  - name: 2607-incident-db-deployer
+  # -------------------- SIDECAR MODULE ------------------------
+  - name: 2607-inc-db-deployer
+    # ------------------------------------------------------------
     type: hdb
     path: gen/db
     parameters:
       buildpack: nodejs_buildpack
     requires:
-      - name: 2607-incident-db
+      # 'hana' and 'xsuaa' resources extracted from CAP configuration
+      - name: 2607-inc-db
 
 resources:
-  - name: 2607-incident-db
+  # services extracted from CAP configuration
+  # 'service-plan' can be configured via 'cds.requires.<name>.vcap.plan'
+  # ------------------------------------------------------------
+  - name: 2607-inc-db
+    # ------------------------------------------------------------
     type: com.sap.xs.hdi-container
     parameters:
       service: hana # or 'hanatrial' on trial landscapes

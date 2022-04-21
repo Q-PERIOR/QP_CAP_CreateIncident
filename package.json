@@ -1,5 +1,5 @@
 {
-  "name": "incident",
+  "name": "qp_cap_createincident",
   "version": "1.0.0",
   "description": "A simple CAP project.",
   "repository": "<Add your repository here>",
@@ -8,17 +8,13 @@
   "dependencies": {
     "@sap/cds": "^5",
     "@sap/cds-odata-v2-adapter-proxy": "^1.8.9",
-    "express": "^4.17.2",
+    "@sap/hana-client": "^2.10.15",
+    "express": "^4",
     "hdb": "^0.18.3",
-    "passport": "^0.5.2",
-    "supertest": "^6.2.2"
+    "passport": "0.5.2"
   },
   "devDependencies": {
     "sqlite3": "^5.0.2"
-  },
-  "engines": {
-    "node": "^16",
-    "npm": "7.13.0"
   },
   "scripts": {
     "start": "cds run"
@@ -49,16 +45,19 @@
     }
   },
   "cds": {
-    "hana": {
-      "deploy-format": "hdbtable"
-    },
-    "features": {
-      "fiori_preview": true
-    },
-    "requires": {
-      "db": {
-        "kind": "hana"
+      "hana": {
+          "deploy-format": "hdbtable"
+      },
+      "features": {
+          "fiori_preview": true
+      },
+      "requires": {
+          "db" : {
+              "kind": "hana"
+          },
+          "auth": { 
+              "kind": "dummy-auth" 
+          }
       }
-    }
   }
 }
