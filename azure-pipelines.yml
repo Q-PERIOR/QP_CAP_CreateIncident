@@ -39,5 +39,5 @@ steps:
   - task: PublishPipelineArtifact@1
     displayName: "Publish Pipeline Artifact"
     inputs:
-      targetPath: "./2607-incident_1.0.0.mtar"
+      targetPath: "./2607-inc_1.0.0.mtar"
       artifact: incidentsrv
