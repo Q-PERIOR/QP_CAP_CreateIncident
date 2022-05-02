@@ -1,0 +1,66 @@
+
+### Get all Topics
+https://q-perior-ag-dev-2607-inc-srv.cfapps.eu10.hana.ondemand.com/create-incident/Topic
+
+### Get all Responsibles
+https://q-perior-ag-dev-2607-inc-srv.cfapps.eu10.hana.ondemand.com/create-incident/Responsible
+
+### Get all Incidents
+https://q-perior-ag-dev-2607-inc-srv.cfapps.eu10.hana.ondemand.com/create-incident/Incident
+
+
+### Get topic of ID 100
+https://q-perior-ag-dev-2607-inc-srv.cfapps.eu10.hana.ondemand.com/create-incident/Topic/100
+
+### Get responisble of ID 1
+https://q-perior-ag-dev-2607-inc-srv.cfapps.eu10.hana.ondemand.com/create-incident/Responsible/1
+
+
+### Get topics of responsibles
+https://q-perior-ag-dev-2607-inc-srv.cfapps.eu10.hana.ondemand.com/create-incident/Responsible?$expand=topic
+
+### Get topics of responsible with ID 2
+https://q-perior-ag-dev-2607-inc-srv.cfapps.eu10.hana.ondemand.com/create-incident/Responsible/2?$expand=topic
+
+### Get responsibles of topic
+https://q-perior-ag-dev-2607-inc-srv.cfapps.eu10.hana.ondemand.com/create-incident/Topic?$expand=responsible
+
+### Get responsibles of topic with ID 300
+https://q-perior-ag-dev-2607-inc-srv.cfapps.eu10.hana.ondemand.com/create-incident/Topic/300?$expand=responsible
+
+
+###### User Requests
+
+### Get open Incident of user
+https://q-perior-ag-dev-2607-inc-srv.cfapps.eu10.hana.ondemand.com/request-user/getOpenIncidents(creator='Jimmy')
+
+### Get status of Incident
+https://q-perior-ag-dev-2607-inc-srv.cfapps.eu10.hana.ondemand.com/request-user/getStatusOfIncidentByID(incident_ID=8afef418-a1da-4f0f-acd2-fe4a1eb788da)
+
+### Post Incident via name instead of ID
+https://q-perior-ag-dev-2607-inc-srv.cfapps.eu10.hana.ondemand.com/request-user/createIncident(creator='Jimmy',topicName='Computer',priority=2,title='TitleTest',message='MessageContent')
+
+### Post Incident
+POST https://q-perior-ag-dev-2607-inc-srv.cfapps.eu10.hana.ondemand.com/create-incident/Incident
+Content-Type: application/json
+
+{
+    "creator":"Jimmy",
+    "topic_ID":200,
+    "priority":1,
+    "title":"TitleTest2",
+    "message":"MessageContentTest2"
+}
+
+
+
+####### Admin Requests
+
+### Get open Incident of everyone
+https://q-perior-ag-dev-2607-inc-srv.cfapps.eu10.hana.ondemand.com/request-admin/getOpenIncidents()
+
+### Get Incidents of a specific topic
+https://q-perior-ag-dev-2607-inc-srv.cfapps.eu10.hana.ondemand.com/request-admin/getIncidentsFromTopic(topic_ID=200)
+
+### Set status of a Incident
+https://q-perior-ag-dev-2607-inc-srv.cfapps.eu10.hana.ondemand.com/request-admin/setIncidentStatus(incident_ID=8afef418-a1da-4f0f-acd2-fe4a1eb788da,status=9)
