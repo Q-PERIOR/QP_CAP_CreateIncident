@@ -17,6 +17,7 @@
     "passport": "0.5.2"
   },
   "devDependencies": {
+    "cds-swagger-ui-express": "^0.4.0",
     "sqlite3": "^5.0.2"
   },
   "scripts": {
@@ -49,19 +50,19 @@
     }
   },
   "cds": {
-      "hana": {
-          "deploy-format": "hdbtable"
+    "hana": {
+      "deploy-format": "hdbtable"
+    },
+    "features": {
+      "fiori_preview": true
+    },
+    "requires": {
+      "db": {
+        "kind": "hana"
       },
-      "features": {
-          "fiori_preview": true
-      },
-      "requires": {
-          "db" : {
-              "kind": "hana"
-          },
-          "auth": { 
-              "kind": "dummy-auth" 
-          }
+      "auth": {
+        "kind": "dummy-auth"
       }
+    }
   }
 }
